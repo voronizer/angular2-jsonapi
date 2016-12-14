@@ -113,10 +113,10 @@ describe('JsonApiDatastore', () => {
             });
             datastore.query(Author).subscribe((authors) => {
                 expect(authors).toBeDefined();
-                expect(authors.length).toEqual(1);
-                expect(authors[0].id).toEqual(AUTHOR_ID);
-                expect(authors[0].name).toEqual(AUTHOR_NAME);
-                expect(authors[1]).toBeUndefined();
+                expect(authors.data.length).toEqual(1);
+                expect(authors.data[0].id).toEqual(AUTHOR_ID);
+                expect(authors.data[0].name).toEqual(AUTHOR_NAME);
+                expect(authors.data[1]).toBeUndefined();
             });
         });
 
@@ -166,8 +166,8 @@ describe('JsonApiDatastore', () => {
             });
             datastore.findRecord(Author, '1').subscribe((author) => {
                 expect(author).toBeDefined();
-                expect(author.id).toBe(AUTHOR_ID);
-                expect(author.date_of_birth).toEqual(AUTHOR_BIRTH);
+                expect(author.data.id).toBe(AUTHOR_ID);
+                expect(author.data.date_of_birth).toEqual(AUTHOR_BIRTH);
             });
         });
 
