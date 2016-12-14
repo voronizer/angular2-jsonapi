@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
+    "suppressImplicitAnyIndexErrors": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "ES5",
+    "target": "es5",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -30,6 +32,7 @@
   ],
   "exclude": [
     "node_modules",
+    "coverage",
     "dist"
   ],
   "include": [

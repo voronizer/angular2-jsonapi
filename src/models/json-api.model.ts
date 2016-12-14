@@ -3,17 +3,24 @@ import 'reflect-metadata';
 import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { JsonApiDatastore, ModelType } from '../services/json-api-datastore.service';
+import { LinksModel } from './links.model';
 
 export class JsonApiModel {
 
   id: string;
+  private _links: LinksModel = new LinksModel;
   [key: string]: any;
 
   constructor(private _datastore: JsonApiDatastore, data?: any) {
     if (data) {
       this.id = data.id;
       _.extend(this, data.attributes);
+      this._links.updateLinks(data.links);
     }
+  }
+
+  get links() {
+    return this._links;
   }
 
   syncRelationships(data: any, included: any, level: number): void {
