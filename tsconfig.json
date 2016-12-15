@@ -22,8 +22,6 @@
     ],
     "types": [
       "jasmine",
-      "selenium-webdriver",
-      "lodash",
       "reflect-metadata"
     ]
   },
